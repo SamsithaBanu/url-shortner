@@ -3,6 +3,8 @@ from contextlib import asynccontextmanager
 from backend.api.router import master_router
 from fastapi import FastAPI
 from scalar_fastapi import get_scalar_api_reference
+from fastapi.middleware.cors import CORSMiddleware
+
 
 @asynccontextmanager
 async def lifespan_handler(app):
@@ -13,6 +15,21 @@ async def lifespan_handler(app):
 app = FastAPI(
     lifespan=lifespan_handler
 )
+
+# CORS configuration
+origins = [
+    "http://localhost:5173",
+    "https://url-shortner-ruby-alpha.vercel.app",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app.include_router(master_router)
 
