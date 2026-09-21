@@ -1,3 +1,4 @@
+from backend.config import settings
 from starlette.responses import RedirectResponse
 from fastapi import APIRouter, HTTPException, status
 
@@ -30,14 +31,12 @@ redirect_router = APIRouter(
 # ============================================================
 
 def to_response(db_url: URLS) -> URLResponse:
-
+    base = settings.BASE_URL.rstrip("/")
     return URLResponse(
         id=db_url.id,
         short_code=db_url.short_code,
         origin_url=db_url.origin_url,
-        short_url=(
-            f"http://localhost:8000/{db_url.short_code}"
-        ),
+        short_url=f"{base}/{db_url.short_code}",
         created_at=db_url.created_at,
         clicks=db_url.clicks,
         is_active=db_url.is_active,

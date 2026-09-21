@@ -17,6 +17,9 @@ class DatabaseSettings(BaseSettings):
     REDIS_HOST: str
     REDIS_PORT: str
 
+    BASE_URL: str = "http://localhost:8000"
+
+
     model_config = _base_config
 
     short_code_length: ClassVar[int] = 7
