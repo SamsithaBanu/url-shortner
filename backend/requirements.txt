@@ -2,6 +2,7 @@ fastapi
 uvicorn[standard]
 
 sqlalchemy
+sqlmodel
 asyncpg
 
 pydantic
@@ -15,3 +16,5 @@ redis
 
 python-multipart
 email-validator
+
+scalar-fastapi
