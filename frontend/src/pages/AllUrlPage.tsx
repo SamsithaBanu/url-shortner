@@ -101,7 +101,7 @@ const AllUrlPage = () => {
                   <tr key={item.id} className="hover:bg-muted/30 bg-white shadow-sm border rounded-lg mt-2">
                     <td className="p-3 font-medium text-primary">
                       <a
-                        href={item.short_url}
+                        href={item?.origin_url}
                         target="_blank"
                         rel="noreferrer"
                         className="hover:underline flex items-center gap-1"
