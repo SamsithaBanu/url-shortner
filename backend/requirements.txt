@@ -9,8 +9,7 @@ pydantic
 pydantic-settings
 
 PyJWT
-passlib[bcrypt]
-bcrypt
+bcrypt==4.3.0
 
 redis
 
