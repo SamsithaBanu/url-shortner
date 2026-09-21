@@ -31,11 +31,11 @@ app.add_middleware(
 )
 
 
-app.include_router(master_router)
-
 @app.get("/scalar", include_in_schema=False)
 def get_scalar():
     return get_scalar_api_reference(
         openapi_url=app.openapi_url,
         title='Scalar API'
     )
+    
+app.include_router(master_router)
