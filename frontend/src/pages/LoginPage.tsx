@@ -21,12 +21,9 @@ const LoginPage = () => {
     const [password, setPassword] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        setError(null);
         setLoading(true);
 
         try {
@@ -42,14 +39,7 @@ const LoginPage = () => {
             navigate("/");
         } catch (err: any) {
             console.error(err);
-
             toast.error("Login failed!");
-
-            setError(
-                err.response?.data?.detail ||
-                err.message ||
-                "Something went wrong. Please try again."
-            );
         } finally {
             setLoading(false);
         }

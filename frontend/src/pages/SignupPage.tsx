@@ -1,4 +1,4 @@
-import { redirect, useNavigate } from "react-router"
+import { useNavigate } from "react-router"
 import { Button } from "../components/ui/button"
 import {
     Card,
@@ -21,11 +21,9 @@ const SignupPage = () => {
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false)
-    const [error, setError] = useState<string | null>(null)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError(null);
         setLoading(true);
 
         try {
@@ -39,7 +37,7 @@ const SignupPage = () => {
 
         } catch (err: any) {
             toast.error('User Registration Failed!')
-            setError(err.message || "Something went wrong. Please try again.");
+            console.error(err.message || "Something went wrong. Please try again.");
         } finally {
             setLoading(false);
         }

@@ -1,4 +1,5 @@
 import axios from "axios";
+import type { userData } from "./types";
 
 export interface URLCreatePayload {
   origin_url: string;
@@ -113,8 +114,8 @@ export async function logoutUser() {
   return response.data;
 }
 
-export const getCurrentUser = async () => {
-  const response = await api.get(
+export const getCurrentUser = async (): Promise<userData> => {
+  const response = await api.get<userData>(
     '/api/users/me'
   )
   return response.data

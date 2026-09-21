@@ -9,20 +9,30 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<ProtectedRoute />} >
+        {/* Protected routes */}
+        <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Homepage />} />
+          <Route path="/all-urls" element={<AllUrlPage />} />
         </Route>
-        <Route element={<ProtectedRoute />} >
-          <Route path='/all-urls' element={<AllUrlPage />} />
-        </Route>
-        <Route path='/login' element={
-          <div className="min-h-screen flex items-center justify-center">
-            <LoginPage />
-          </div>} />
-        <Route path='/signup' element={
-          <div className="min-h-screen flex items-center justify-center">
-            <SignupPage />
-          </div>} />
+
+        {/* Public routes */}
+        <Route
+          path="/login"
+          element={
+            <div className="min-h-screen flex items-center justify-center">
+              <LoginPage />
+            </div>
+          }
+        />
+
+        <Route
+          path="/signup"
+          element={
+            <div className="min-h-screen flex items-center justify-center">
+              <SignupPage />
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

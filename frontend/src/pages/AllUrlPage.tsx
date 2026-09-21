@@ -60,7 +60,7 @@ const AllUrlPage = () => {
   };
 
   return (
-    <MainLayout title="All URLs" description="View and manage all shortened URLs.">
+    <MainLayout>
       <div className="space-y-4 max-w-5xl mx-auto">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold text-foreground">All Shortened Links</h2>

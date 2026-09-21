@@ -2,7 +2,7 @@ import { AppSidebar } from "./app-sidebar";
 import Header from "./Header";
 import { SidebarProvider, SidebarInset } from "./ui/sidebar";
 
-const MainLayout = ({ title, description, children }: { title?: string; description?: string; children: React.ReactNode }) => {
+const MainLayout = ({ children }: { title?: string; description?: string; children: React.ReactNode }) => {
     return (
         <SidebarProvider style={{ "--sidebar-width": "250px" } as React.CSSProperties}>
             <AppSidebar />

@@ -3,11 +3,6 @@ import {
   Link2,
   Home,
   Link as LinkIcon,
-  Sparkles,
-  BarChart3,
-  Settings,
-  HelpCircle,
-  ExternalLink,
   User,
   ChevronsUpDown,
 } from "lucide-react";
@@ -27,19 +22,12 @@ import {
 import { useEffect, useState } from "react";
 import { getCurrentUser, logoutUser } from "../lib/api";
 import { toast } from "react-toastify";
+import type { userData } from "../lib/types";
 
-interface userData {
-  created_at: string;
-  password_hash: string;
-  email: string;
-  id: number;
-  name: string;
-}
 
 export function AppSidebar() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [error, setError] = useState<string | null>(null);
   const [user, setUser] = useState<userData>()
 
   const mainNavigation = [
@@ -61,7 +49,7 @@ export function AppSidebar() {
       console.log('response', response)
       setUser(response)
     } catch (error) {
-      setError(error)
+      console.error(error)
     }
   }
 

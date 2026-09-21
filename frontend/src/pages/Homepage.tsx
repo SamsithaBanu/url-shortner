@@ -1,12 +1,9 @@
-import { AppSidebar } from "../components/app-sidebar";
 import { CreateShortUrl } from "../components/create-short-url";
 import MainLayout from "../components/main-layout";
-import { SidebarTrigger, SidebarProvider } from "../components/ui/sidebar";
 
-
-export default function Homepage({ children }: { children: React.ReactNode }) {
+export default function Homepage() {
     return (
-        <MainLayout title={''} description={''}>
+        <MainLayout>
             <CreateShortUrl />
         </MainLayout>
     )
